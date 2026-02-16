@@ -1,0 +1,52 @@
+﻿   тЦ▓ Next.js 15.5.12
+
+   Creating an optimized production build ...
+> [PWA] Compile server
+> [PWA] Compile server
+> [PWA] Compile client (static)
+> [PWA] Auto register service worker with: C:\Users\Admin\Desktop\flower-shop\frontend\node_modules\next-pwa\register.js
+> [PWA] Service worker: C:\Users\Admin\Desktop\flower-shop\frontend\public\sw.js
+> [PWA]   url: /sw.js
+> [PWA]   scope: /
+ тЬУ Compiled successfully in 12.1s
+   Linting and checking validity of types ...
+   Collecting page data ...
+node.exe : [Error [Pa
+geNotFoundError]: Can
+not find module for p
+age: /favorites] {
+строка:1 знак:1
++ & "C:\nvm4w\nodejs/
+node.exe" "C:\nvm4w\n
+odejs/node_modules/np
+m/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: ([Error    
+ [PageNot...: /fa    
+vorites] {:Strin    g
+) [], RemoteExc    ep
+tion
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  code: 'ENOENT'
+}
+[Error [PageNotFoundE
+rror]: Cannot find mo
+dule for page: /catal
+og] {
+  code: 'ENOENT'
+}
+
+> Build error occurre
+d
+[Error: Failed to col
+lect page data for /f
+avorites] { type: 'Er
+ror' }

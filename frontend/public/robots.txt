@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Disallow: /profile/settings/
+Disallow: /florist/
+Disallow: /florist2/
+
+Sitemap: https://flower-shop.ru/sitemap.xml
