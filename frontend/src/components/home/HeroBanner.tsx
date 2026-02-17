@@ -30,10 +30,9 @@ export default function HeroBanner() {
             </motion.div>
 
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div
-                    className="absolute inset-y-[-12%] right-[-12%] w-[58vw] min-w-[360px] max-w-[760px] hero-flower-wrap"
-                    animate={prefersReducedMotion ? { scale: 1, x: 0, y: 0 } : { scale: [1, 1.03, 1], x: [0, -6, 0], y: [0, 4, 0] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+                <div className="hero-glow" />
+                <div
+                    className={`hero-flower-wrap ${prefersReducedMotion ? '' : 'hero-flower-float'}`}
                 >
                     <Image
                         src="/hero/flower.png"
@@ -43,12 +42,12 @@ export default function HeroBanner() {
                         aria-hidden="true"
                         className="hero-flower object-contain object-right"
                     />
-                </motion.div>
+                </div>
             </div>
 
             <div className="relative z-10 text-center px-6 max-w-lg mx-auto">
                 <motion.h1
-                    className="text-4xl md:text-5xl font-semibold mb-5 text-[var(--text-primary)] tracking-[0.01em]"
+                    className="text-4xl md:text-5xl font-semibold mb-5 text-[#2a2623] tracking-[0.01em]"
                     style={{
                         fontFamily: 'var(--font-heading)',
                         textShadow: '0 2px 20px rgba(196, 147, 122, 0.12)',
@@ -61,7 +60,7 @@ export default function HeroBanner() {
                 </motion.h1>
 
                 <motion.p
-                    className="text-lg mb-10 text-[var(--text-secondary)] tracking-wide"
+                    className="text-lg mb-10 text-[#6b635c] tracking-wide"
                     style={{ fontFamily: 'var(--font-body)', lineHeight: 1.8 }}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
