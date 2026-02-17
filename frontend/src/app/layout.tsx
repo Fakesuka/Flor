@@ -3,9 +3,9 @@ import { Inter, Playfair_Display, Cormorant_Garamond } from 'next/font/google';
 import '../styles/globals.css';
 import BottomNav from '@/components/layout/BottomNav';
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' });
-const playfair = Playfair_Display({ subsets: ['latin', 'cyrillic'], variable: '--font-playfair' });
-const cormorant = Cormorant_Garamond({ subsets: ['latin', 'cyrillic'], weight: ['400', '600', '700'], variable: '--font-cormorant' });
+const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter', display: 'swap' });
+const playfair = Playfair_Display({ subsets: ['latin', 'cyrillic'], variable: '--font-playfair', display: 'swap' });
+const cormorant = Cormorant_Garamond({ subsets: ['latin', 'cyrillic'], weight: ['400', '600', '700'], variable: '--font-cormorant', display: 'swap' });
 
 export const viewport: Viewport = {
     themeColor: '#C4937A',
@@ -85,7 +85,7 @@ export default function RootLayout({
 
     return (
         <html lang="ru" className={`${inter.variable} ${playfair.variable} ${cormorant.variable}`}>
-            <body>
+            <body className={`${inter.className} ${playfair.variable} ${cormorant.variable}`}>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

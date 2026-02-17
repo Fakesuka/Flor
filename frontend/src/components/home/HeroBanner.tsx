@@ -1,23 +1,49 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { AnimatedButton } from '@/components/ui/AnimatedButton';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HeroBanner() {
+    const prefersReducedMotion = useReducedMotion();
+
     return (
         <section
             className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
-            style={{ background: 'var(--gradient-hero)' }}
         >
-            {/* Ambient orbs */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="ambient-orb ambient-orb--rose absolute -top-20 -right-20 w-[420px] h-[420px]" />
-                <div className="ambient-orb ambient-orb--sage absolute -bottom-32 -left-20 w-[360px] h-[360px]" />
-                <div
-                    className="ambient-orb ambient-orb--lavender absolute top-1/3 left-1/2 -translate-x-1/2 w-[280px] h-[280px]"
-                    style={{ opacity: 0.15 }}
+            <div className="hero-bg" />
+
+            <motion.div
+                className="hero-grain"
+                animate={prefersReducedMotion ? { x: 0, y: 0 } : { x: [0, 12, 0], y: [0, -8, 0] }}
+                transition={{ duration: 24, repeat: Infinity, ease: 'easeInOut' }}
+            >
+                <Image
+                    src="/hero/grain.png"
+                    alt=""
+                    fill
+                    priority
+                    aria-hidden="true"
+                    className="object-cover"
                 />
+            </motion.div>
+
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    className="absolute inset-y-[-12%] right-[-12%] w-[58vw] min-w-[360px] max-w-[760px] hero-flower-wrap"
+                    animate={prefersReducedMotion ? { scale: 1, x: 0, y: 0 } : { scale: [1, 1.03, 1], x: [0, -6, 0], y: [0, 4, 0] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                    <Image
+                        src="/hero/flower.png"
+                        alt=""
+                        fill
+                        priority
+                        aria-hidden="true"
+                        className="hero-flower object-contain object-right"
+                    />
+                </motion.div>
             </div>
 
             <div className="relative z-10 text-center px-6 max-w-lg mx-auto">
