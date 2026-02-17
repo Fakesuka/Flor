@@ -10,9 +10,10 @@ export default function HeroBanner() {
 
     return (
         <section
-            className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
+            className="relative min-h-[460px] md:min-h-[70vh] flex items-center justify-center overflow-hidden"
         >
             <div className="hero-bg" />
+            <div className="hero-frame" />
 
             <motion.div
                 className="hero-grain"
@@ -28,22 +29,6 @@ export default function HeroBanner() {
                     className="object-cover"
                 />
             </motion.div>
-
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="hero-glow" />
-                <div
-                    className={`hero-flower-wrap ${prefersReducedMotion ? '' : 'hero-flower-float'}`}
-                >
-                    <Image
-                        src="/hero/flower.png"
-                        alt=""
-                        fill
-                        priority
-                        aria-hidden="true"
-                        className="hero-flower object-contain object-right"
-                    />
-                </div>
-            </div>
 
             <div className="relative z-10 text-center px-6 max-w-lg mx-auto">
                 <motion.h1
