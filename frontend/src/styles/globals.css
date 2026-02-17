@@ -232,6 +232,12 @@ button {
   background-size: 100% 100%;
 }
 
+@media (min-width: 768px) {
+  .hero-frame {
+    background-size: auto 100%;
+  }
+}
+
 .hero-grain {
   position: absolute;
   inset: 0;
