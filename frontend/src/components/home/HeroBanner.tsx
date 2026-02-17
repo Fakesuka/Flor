@@ -1,28 +1,53 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { AnimatedButton } from '@/components/ui/AnimatedButton';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HeroBanner() {
+    const prefersReducedMotion = useReducedMotion();
+
     return (
         <section
             className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
-            style={{ background: 'var(--gradient-hero)' }}
         >
-            {/* Ambient orbs */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="ambient-orb ambient-orb--rose absolute -top-20 -right-20 w-[420px] h-[420px]" />
-                <div className="ambient-orb ambient-orb--sage absolute -bottom-32 -left-20 w-[360px] h-[360px]" />
-                <div
-                    className="ambient-orb ambient-orb--lavender absolute top-1/3 left-1/2 -translate-x-1/2 w-[280px] h-[280px]"
-                    style={{ opacity: 0.15 }}
+            <div className="hero-bg" />
+
+            <motion.div
+                className="hero-grain"
+                animate={prefersReducedMotion ? { x: 0, y: 0 } : { x: [0, 12, 0], y: [0, -8, 0] }}
+                transition={{ duration: 24, repeat: Infinity, ease: 'easeInOut' }}
+            >
+                <Image
+                    src="/hero/grain.png"
+                    alt=""
+                    fill
+                    priority
+                    aria-hidden="true"
+                    className="object-cover"
                 />
+            </motion.div>
+
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="hero-glow" />
+                <div
+                    className={`hero-flower-wrap ${prefersReducedMotion ? '' : 'hero-flower-float'}`}
+                >
+                    <Image
+                        src="/hero/flower.png"
+                        alt=""
+                        fill
+                        priority
+                        aria-hidden="true"
+                        className="hero-flower object-contain object-right"
+                    />
+                </div>
             </div>
 
             <div className="relative z-10 text-center px-6 max-w-lg mx-auto">
                 <motion.h1
-                    className="text-4xl md:text-5xl font-semibold mb-5 text-[var(--text-primary)] tracking-[0.01em]"
+                    className="text-4xl md:text-5xl font-semibold mb-5 text-[#2a2623] tracking-[0.01em]"
                     style={{
                         fontFamily: 'var(--font-heading)',
                         textShadow: '0 2px 20px rgba(196, 147, 122, 0.12)',
@@ -35,7 +60,7 @@ export default function HeroBanner() {
                 </motion.h1>
 
                 <motion.p
-                    className="text-lg mb-10 text-[var(--text-secondary)] tracking-wide"
+                    className="text-lg mb-10 text-[#6b635c] tracking-wide"
                     style={{ fontFamily: 'var(--font-body)', lineHeight: 1.8 }}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
