@@ -216,80 +216,34 @@ button {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(60% 60% at 70% 40%, rgba(255, 210, 220, 0.35), transparent 70%),
-    radial-gradient(50% 50% at 30% 70%, rgba(255, 230, 210, 0.25), transparent 70%),
+    radial-gradient(60% 60% at 72% 30%, rgba(255, 214, 223, 0.3), transparent 70%),
+    radial-gradient(55% 55% at 25% 75%, rgba(255, 238, 220, 0.24), transparent 72%),
     linear-gradient(180deg, #faf8f6 0%, #f3efe9 100%);
+}
+
+.hero-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url('/hero/hero-frame.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
 }
 
 .hero-grain {
   position: absolute;
   inset: 0;
+  z-index: 2;
   opacity: 0.03;
   mix-blend-mode: multiply;
   pointer-events: none;
 }
 
-.hero-flower-wrap {
-  position: absolute;
-  right: -40px;
-  bottom: -20px;
-  width: clamp(240px, 30vw, 360px);
-  height: clamp(300px, 42vw, 460px);
-  z-index: 5;
-  pointer-events: none;
-  filter:
-    drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08))
-    drop-shadow(0 0 40px rgba(255, 200, 210, 0.25));
-}
-
-.hero-glow {
-  position: absolute;
-  right: 10%;
-  bottom: 10%;
-  width: 300px;
-  height: 300px;
-  z-index: 4;
-  background:
-    radial-gradient(circle,
-      rgba(255, 200, 210, 0.35) 0%,
-      rgba(255, 200, 210, 0.12) 40%,
-      transparent 70%);
-  filter: blur(40px);
-}
-
-.hero-flower {
-  pointer-events: none;
-  opacity: 0.95;
-  mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
-}
-
-.hero-flower-float {
-  animation: flowerFloat 12s ease-in-out infinite;
-}
-
-@keyframes flowerFloat {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-6px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-grain,
-  .hero-flower-wrap {
+  .hero-grain {
     animation: none !important;
     transform: none !important;
-  }
-
-  .hero-flower-float {
-    animation: none !important;
   }
 }
